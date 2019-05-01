@@ -1,0 +1,7 @@
+GOAL 1 - Geanerate a slug for each post
+
+gatsby.md -> gatsby-> /blog/gatsby
+
+GOAL 2 - Geanerate the blog post page template
+
+GOAL 3 - geanerate a page for each post

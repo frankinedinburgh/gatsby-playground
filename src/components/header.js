@@ -1,42 +1,34 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import headerStyles from './header.module.scss'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = () => {
+    const data = useStaticQuery(graphql`
+        {
+            site {
+                siteMetadata {
+                    title
+                }
+            }
+        }
+    `)
+    return (
+        <header className={headerStyles.header}>
+            <h1>
+                <Link className={headerStyles.title} to="/">
+                    {data.site.siteMetadata.title}
+                </Link>
+            </h1>
+            <nav>
+                <ul className={headerStyles.navList}>
+                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.navItemActive} to="/">Home</Link></li>
+                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.navItemActive} to="/about">About</Link></li>
+                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.navItemActive} to="/blog">Blog</Link></li>
+                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.navItemActive} to="/contact">Contact</Link></li>
+                </ul>
+            </nav>
+        </header>
+    )
 }
 
 export default Header

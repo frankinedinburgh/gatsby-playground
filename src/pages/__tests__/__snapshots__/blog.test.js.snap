@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog renders correctly 1`] = `
+<div>
+  <h1>
+    Blog
+  </h1>
+  <p>
+    Posts will show up here later on.
+  </p>
+</div>
+`;
