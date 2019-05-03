@@ -7,13 +7,28 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'src',
-        path: `${__dirname}/src/`
-      }
+        name: "src",
+        path: `${__dirname}/src/`,
+      },
     },
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          "gatsby-remark-relative-images",
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 750,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -32,7 +47,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`
+        display: `minimal-ui`,
         //icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },

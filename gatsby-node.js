@@ -6,6 +6,7 @@
 
 // You can delete this file if you're not using it
 const path = require('path')
+
 module.exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions
 
@@ -18,4 +19,39 @@ module.exports.onCreateNode = ({ node, actions }) => {
        })
     }
     
+}
+
+
+module.exports.createPages = async ({ graphql, actions }) => {
+    const { createPage } = actions
+    const blogTemplate = path.resolve('./src/templates/blog.js')
+
+    const res = await graphql(`
+        query{
+            allMarkdownRemark {
+                edges{
+                    node {
+                        fields {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    res.data.allMarkdownRemark.edges.forEach((edge) => {
+        createPage({
+            component: blogTemplate,
+            path: `/blog/${edge.node.fields.slug}`,
+            context: {
+                slug: edge.node.fields.slug
+            }
+        })
+    })
+
+    // 1. Gey path to templates
+    // 2. Gey markdown dataa
+    // 3. Create new pages
+
 }
