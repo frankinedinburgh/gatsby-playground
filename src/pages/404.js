@@ -1,11 +1,14 @@
 import React from "react"
-import Layout from '../components/layout'
+import { Link } from "gatsby"
+import Layout from "../components/layout"
+import Head from "../components/head"
 
 const NotFoundPage = () => {
   return (
     <Layout>
-      <h1>Fullstack developer</h1>
-      <h2>this is a todo app managing a list of courses and articles to read and do</h2>
+      <Head title="404" />
+      <h1>Page not found</h1>
+      <Link to={"/"}>Head home</Link>
     </Layout>
   )
 }
