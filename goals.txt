@@ -1,7 +1,4 @@
-GOAL 1 - Geanerate a slug for each post
+GOAL 1 - Generate pagination navigation for blog posts
+GOAL 2 - Display tags for blogs
+GOAL 3 - Filter blogs by tag
 
-gatsby.md -> gatsby-> /blog/gatsby
-
-GOAL 2 - Geanerate the blog post page template
-
-GOAL 3 - geanerate a new page for each post

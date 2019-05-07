@@ -4,6 +4,23 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import BlogStyles from "./blog.module.scss"
 import Head from "../components/head"
 
+const useAlTags = () => {
+  const { allTags } = useStaticQuery(
+    graphql`
+      query {
+        allContentfulBlogPost {
+          edges {
+            node {
+              tags
+            }
+          }
+        }
+      }
+    `
+  )
+  return allTags
+}
+
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -21,12 +38,16 @@ const BlogPage = () => {
       }
     }
   `)
+
+  const tags = allTags()
+  console.log(tags)
+
   return (
     <div>
       <Layout>
         <Head title="blog page" />
         <h1>Blog</h1>
-        {/* <pre>{JSON.stringify(data.allContentfulBlogPost.edges, null, 4)}</pre> */}
+        <pre>{JSON.stringify(tags.allContentfulBlogPost, null, 4)}</pre>
         <ol className={BlogStyles.posts}>
           {data.allContentfulBlogPost.edges.map((d, index) => (
             <li className={BlogStyles.post} key={`blog-${index}`}>

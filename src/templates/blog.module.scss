@@ -1,0 +1,9 @@
+.badge {
+  float: left;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  background-color: #efefef;
+  &:hover {
+    background-color: darken($color: #efefef, $amount: 2.5);
+  }
+}
