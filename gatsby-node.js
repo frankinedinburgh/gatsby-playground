@@ -15,6 +15,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
     query {
       allContentfulBlogPost {
         edges {
+          previous {
+            slug
+          }
+          next {
+            slug
+          }
           node {
             slug
           }
@@ -32,8 +38,4 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
-  // 1. Gey path to templates
-  // 2. Gey markdown dataa
-  // 3. Create new pages
 }

@@ -41,6 +41,18 @@ const BlogComponent = props => {
           options
         )}
 
+      <pre>{JSON.stringify(props, null, 4)}</pre>
+      <nav className={Blog.pagination}>
+        <ul>
+          <li>
+            <Link to={"/"}>Prev</Link>
+          </li>
+          <li>
+            <Link to={"/"}>Next</Link>
+          </li>
+        </ul>
+      </nav>
+
       {props.data.contentfulBlogPost.tags &&
         props.data.contentfulBlogPost.tags.map(tag => (
           <Link className={Blog.badge}>{tag}</Link>
