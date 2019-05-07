@@ -8,14 +8,8 @@ const indexPage = () => {
     <div>
       <Layout>
         <Head title="home" />
-        <h1>Fullstack developer</h1>
-        <p>
-          this is a todo app managing a list of courses and articles to read and
-          do
-        </p>
-        <p>
-          Need a developer? <Link to="/contact">Contact me.</Link>
-        </p>
+        <h1>digital-doodles</h1>
+        <p>List of blogs related to rnning and software development</p>
       </Layout>
     </div>
   )
