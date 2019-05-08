@@ -1,4 +1,4 @@
-GOAL 1 - Generate pagination navigation for blog posts
-GOAL 2 - Display tags for blogs
+// GOAL 1 - Generate prev and next pagination navigation for blog posts
+// GOAL 2 - Display tags for blogs
 GOAL 3 - Filter blogs by tag
 

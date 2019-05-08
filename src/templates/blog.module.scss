@@ -8,5 +8,27 @@
   }
 }
 .pagination {
-  outline: 1px solid red;
+  display: block;
+  clear: both;
+  padding: 30px 0px 0px 0px;
+  ul {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    li {
+      list-style: none;
+      height: 100%;
+      a {
+        text-decoration: none;
+        background-color: #efefef;
+        display: block;
+        height: 100%;
+        padding: 0.5rem 1rem;
+        margin: 0 6px 0px 6px;
+        &:hover {
+          background-color: darken($color: #efefef, $amount: 2.5);
+        }
+      }
+    }
+  }
 }

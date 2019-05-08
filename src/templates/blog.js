@@ -29,6 +29,7 @@ const BlogComponent = props => {
       },
     },
   }
+
   return (
     <Layout>
       <Head title={props.data.contentfulBlogPost.title} />
@@ -41,29 +42,34 @@ const BlogComponent = props => {
           options
         )}
 
-      <pre>{JSON.stringify(props, null, 4)}</pre>
-      <nav className={Blog.pagination}>
-        <ul>
-          <li>
-            <Link to={"/"}>Prev</Link>
-          </li>
-          <li>
-            <Link to={"/"}>Next</Link>
-          </li>
-        </ul>
-      </nav>
-
       {props.data.contentfulBlogPost.tags &&
         props.data.contentfulBlogPost.tags.map(tag => (
-          <Link className={Blog.badge}>{tag}</Link>
+          <Link to={"/blog/"} state={{ tag: tag }} className={Blog.badge}>
+            {tag}
+          </Link>
         ))}
-      {/* 
-      <div
-        dangerouslySetInnerHTML={{ __html: props.data.contentfulBlogPost.html }}
-      /> */}
-      {/* <pre>{JSON.stringify(props.data.contentfulBlogPost.body, null, 4)}</pre> */}
+
+      <nav className={Blog.pagination}>
+        <ul>
+          {props.pageContext.prev !== "" && (
+            <li key="prev">
+              <Link to={`/blog/${props.pageContext.prev.slug}`}>Prev</Link>
+            </li>
+          )}
+
+          {props.pageContext.next !== "" && (
+            <li key="next">
+              <Link to={`/blog/${props.pageContext.next.slug}`}>Next</Link>
+            </li>
+          )}
+        </ul>
+      </nav>
     </Layout>
   )
 }
 
+BlogComponent.defaultProps = {
+  data: {},
+  pageContext: {},
+}
 export default BlogComponent
