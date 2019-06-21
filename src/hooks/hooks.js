@@ -22,23 +22,23 @@ export const useBlogPage = () => {
   return data.allContentfulBlogPost
 }
 
-export const filterByTag = () => {
-  const data = useStaticQuery(graphql`
-    query($tag: [String]) {
-      allContentfulBlogPost(filter: { tags: { in: $tag } }) {
-        edges {
-          node {
-            title
-            slug
-            tags
-            publishedDate(formatString: "MMMM Do, YYYY")
-            body {
-              json
-            }
-          }
-        }
-      }
-    }
-  `)
-  return data.allContentfulBlogPost
-}
+// export const filterByTag = () => {
+//   const data = useStaticQuery(graphql`
+//     query($tag: [String]) {
+//       allContentfulBlogPost(filter: { tags: { in: $tag } }) {
+//         edges {
+//           node {
+//             title
+//             slug
+//             tags
+//             publishedDate(formatString: "MMMM Do, YYYY")
+//             body {
+//               json
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `)
+//   return data.allContentfulBlogPost
+// }
