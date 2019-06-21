@@ -1,0 +1,18 @@
+.login {
+    input {
+        max-width: 50%;
+        padding: 1%;
+        float: left;
+        outline: '1px solid red';
+        margin: 10px 5px;
+    }
+    button {
+        margin: 10px 5px;
+        padding: 5px 20px;
+        height: 100%;
+        background-color: #75bcf1;
+        color: white;
+        border: 0px solid #75bcf1;
+        
+    }
+}
